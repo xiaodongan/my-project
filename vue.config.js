@@ -1,13 +1,13 @@
 module.exports = {
-  configureWebpack:{
-    resolve:{
-      alias:{
-        '@':'src',
-        'assets':'@/assets',
-        'common':'@/common',
-        'components':'@/components',
-        'network':'@/network',
-        'views':'@/wiews',
+  devServer:{
+    proxy:{
+      '/api':{
+        target:'http://localhost:8080',
+        ws:true,
+        changeOrigin: true,
+        pathRewrite:{
+          '^/api': ''
+        }
       }
     }
   }
